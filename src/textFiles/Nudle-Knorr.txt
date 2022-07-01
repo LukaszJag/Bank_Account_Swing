@@ -1,7 +1,7 @@
 Nudle
 Knorr
 active
-896.0
+777.0
 21.37
 4.20
 null
