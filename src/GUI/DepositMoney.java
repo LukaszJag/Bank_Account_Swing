@@ -94,6 +94,7 @@ public class DepositMoney {
 
             if (money < 0) {
                 JOptionPane.showMessageDialog(null, "Can't deposit negative values");
+                AccountFileHandler.setBalance(nameTextField.getText(), lastNameTextField.getText(), money,""+moneyComboBox.getItemAt(moneyComboBox.getSelectedIndex()));
                 depositFrame.dispose();
             } else {
                 AccountFileHandler.deposit(nameTextField.getText(), lastNameTextField.getText(), money,
