@@ -30,8 +30,9 @@ public class AccountFileHandler {
 
     }
 
-    public static void searchUser(String name, String lastName){
+    public static boolean searchUser (String name, String lastName) {
 
+        return false;
     }
 
 }
