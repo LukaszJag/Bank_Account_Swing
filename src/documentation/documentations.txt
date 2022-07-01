@@ -10,3 +10,15 @@ name  - last name - bank account status - amount of cash - type of money - amoun
     - credit
     - transfer from user to user
     - currency conversion (only current user)
+
+4. works
+    - new account
+    - withdraw
+    - deposit
+    - close account
+
+5. doesn't work
+    -loan
+    -unfrozen
+    -transfer
+    -conversion
