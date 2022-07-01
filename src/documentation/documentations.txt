@@ -1,4 +1,7 @@
-1. Data structure split by special symbol like #
+1. Data structure:
+    Every client will have own text file that will prevent lose data.
+    Every data will be in separate line
+
 2. We will be handling 3 type of money (euro, dollars, zloty)
 
 name  - last name - bank account status - amount of cash - type of money - amount of cash - type of money - amount of cash - type of money
