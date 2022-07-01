@@ -1,1 +1,5 @@
-John#Smith#active#0,0#euro#0,1#dollars#123,12#zloty
+John#Smith#active#0,0#euro#0,1#dollars#123,12#zloty#
+Muki#Duki#active#2#euro#3#dollars#1#zloty#
+Guki#Suzuki#active#0#euro#0#dollars#0#zloty#
+Andrzej#Andrzej#active#2#euro#2#dollars#2#zloty#
+Nick#Nick#active#-12#euro#-1#dollars#-2#zloty#

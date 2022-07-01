@@ -11,8 +11,18 @@ public class AccountFileHandler {
         return "Name doesn't exist";
     }
 
-    public void openAccount(String[] data){
+    public static void openAccount(String[] data){
+        String lineToFile = "";
 
+        lineToFile = lineToFile + data[0] + "#" + data [1] + "#" + "active" + "#";
+
+        String [] money = {"euro", "dollars", "zloty"};
+
+        for (int i = 0; i < 3; i++) {
+            lineToFile = lineToFile + data[i+2] + "#" + money[i] +"#";
+        }
+
+        BasicFilesOperations.writeToFile(lineToFile);
     }
 
     public double getbalance(char typeOfMoney){

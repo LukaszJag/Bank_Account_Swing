@@ -1,6 +1,7 @@
 package GUI;
 
 import configurations.Config;
+import textFiles.AccountFileHandler;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +18,8 @@ public class OpenNewAccountWindow {
 
     JButton acceptButton;
     JFrame openAccount = new JFrame();
-    public OpenNewAccountWindow(){
+
+    public OpenNewAccountWindow() {
 
         JPanel openAccountMainPanel = new JPanel();
 
@@ -36,7 +38,7 @@ public class OpenNewAccountWindow {
 
         acceptButton = new JButton("Accept");
 
-        openAccountMainPanel.setLayout(new GridLayout(5,2));
+        openAccountMainPanel.setLayout(new GridLayout(5, 2));
 
         //Add components to panel
         openAccountMainPanel.add(nameLabel);
@@ -78,7 +80,7 @@ public class OpenNewAccountWindow {
         openAccountPanelWest.setPreferredSize(new Dimension(Config.OPEN_ACCOUNT_PANELS_WEST_EAST_SIZE, Config.OPEN_ACCOUNT_PANELS_WEST_EAST_SIZE));
         openAccountPanelSouth.setPreferredSize(new Dimension(Config.OPEN_ACCOUNT_PANELS_SOUTH_SIZE, Config.OPEN_ACCOUNT_PANELS_SOUTH_SIZE));
 
-        openAccount.setSize(Config.OPEN_ACCOUNT_WINDOWS_WIDTH , Config.OPEN_ACCOUNT_WINDOWS_HEIGHT);
+        openAccount.setSize(Config.OPEN_ACCOUNT_WINDOWS_WIDTH, Config.OPEN_ACCOUNT_WINDOWS_HEIGHT);
         openAccount.setResizable(false);
         openAccount.setLocale(null);
         openAccount.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -86,7 +88,7 @@ public class OpenNewAccountWindow {
 
     }
 
-    private class OpenNewAccountButtonActionListener implements ActionListener{
+    private class OpenNewAccountButtonActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -122,46 +124,42 @@ public class OpenNewAccountWindow {
 
                 boolean passTest = true;
 
-                    try {
+                try {
 
-                        Double.parseDouble(euro);
+                    Double.parseDouble(euro);
 
-                    } catch (Exception ParseToDoubleException) {
-                        JOptionPane.showMessageDialog(null, "Wrong input in euro text field.");
-                       passTest = false;
-                    }
-
-                    try {
-
-                        Double.parseDouble(dollars);
-
-                    } catch (Exception ParseToDoubleException) {
-                        JOptionPane.showMessageDialog(null, "Wrong input in dollars text field.");
-                        passTest = false;
-                    }
-
-                    try {
-
-                        Double.parseDouble(zloty);
-
-                    } catch (Exception ParseToDoubleException) {
-                        JOptionPane.showMessageDialog(null, "Wrong input in zloty text field.");
-                        passTest = false;
-                    }
-
-                    if(passTest == true){
-                        JOptionPane.showMessageDialog(null, "Open new account: " + " Name: " +name + " Last Name: " +lastName);
-                        openAccount.dispose();
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Wrong input. Open account operation fail.");
-                        openAccount.dispose();
-                    }
-
-
-                for (int i = 0; i < openAccountInput.length; i++) {
-                    System.out.println(i + " " + openAccountInput[i]);
+                } catch (Exception ParseToDoubleException) {
+                    JOptionPane.showMessageDialog(null, "Wrong input in euro text field.");
+                    passTest = false;
                 }
+
+                try {
+
+                    Double.parseDouble(dollars);
+
+                } catch (Exception ParseToDoubleException) {
+                    JOptionPane.showMessageDialog(null, "Wrong input in dollars text field.");
+                    passTest = false;
+                }
+
+                try {
+
+                    Double.parseDouble(zloty);
+
+                } catch (Exception ParseToDoubleException) {
+                    JOptionPane.showMessageDialog(null, "Wrong input in zloty text field.");
+                    passTest = false;
+                }
+
+                if (passTest == true) {
+                    JOptionPane.showMessageDialog(null, "Open new account: " + " Name: " + name + " Last Name: " + lastName);
+                    AccountFileHandler.openAccount(openAccountInput);
+                    openAccount.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Wrong input. Open account operation fail.");
+                    openAccount.dispose();
+                }
+
             }
         }
     }

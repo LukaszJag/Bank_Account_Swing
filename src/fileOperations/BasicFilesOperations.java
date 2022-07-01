@@ -9,29 +9,29 @@ import java.util.Scanner;
 public class BasicFilesOperations {
 
     private static String fileLocation = "src/textFiles/";
-    private static String fileName = "accountData.txt";
+    private static String fileName = "accountsData.txt";
     private static String fullFilePathAndName = fileLocation + fileName;
 
-    public void readData(){
+    public void readData() {
         int line = 0;
         String currentLine = "";
 
-        try{
+        try {
             File file = new File(fullFilePathAndName);
             Scanner reader = new Scanner(file);
 
-            while (reader.hasNextLine()){
-                line ++;
+            while (reader.hasNextLine()) {
+                line++;
                 currentLine = reader.nextLine();
                 System.out.println(currentLine);
 
             }
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
     }
 
-    public static void writeToFile(){
+    public static void writeToFile() {
         String lineToFile;
         Scanner input = new Scanner(System.in);
 
@@ -41,7 +41,7 @@ public class BasicFilesOperations {
             System.out.println("To save and exit input: x");
 
             lineToFile = input.nextLine();
-            System.out.println("First line:" +"\n" + lineToFile);
+            System.out.println("First line:" + "\n" + lineToFile);
             while (lineToFile.charAt(0) != 'x') {
 
                 myWriter.write(lineToFile + "\n");
@@ -58,4 +58,18 @@ public class BasicFilesOperations {
         }
     }
 
+    public static void writeToFile(String line) {
+        String lineToFile;
+
+        try {
+            java.io.FileWriter myWriter = new java.io.FileWriter(fullFilePathAndName, true);
+            myWriter.write( "\n" + line);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
 }
