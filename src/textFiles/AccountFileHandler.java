@@ -118,5 +118,60 @@ public class AccountFileHandler {
         }
     }
 
+    public static boolean unBalance(String name, String lastName, double amount, String typeOfMoney) {
+        String pathAndNameOfFile = "src/textFiles/" + name + "-" + lastName + ".txt";
+        File file = new File(pathAndNameOfFile);
+        String[] array = new String[20];
+        double tmp = 0;
+        try {
+            Scanner fileReader = new Scanner(file);
+            int counter = 0;
+            while (fileReader.hasNextLine()) {
+                array[counter] = fileReader.nextLine();
+                counter++;
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        if (typeOfMoney.equals("Euro")) {
+            tmp = Double.parseDouble(array[3]) - amount;
+            if (tmp < 0) {
+                return false;
+            }
+            array[3] = String.valueOf(tmp);
+        }
+        if (typeOfMoney.equals("Dollar")) {
+            tmp = Double.parseDouble(array[4]) - amount;
+            if (tmp < 0) {
+                return false;
+            }
+            array[4] = String.valueOf(tmp);
+        }
+        if (typeOfMoney.equals("Zloty")) {
+            tmp = Double.parseDouble(array[5]) - amount;
+            if (tmp < 0) {
+                return false;
+            }
+            array[5] = String.valueOf(tmp);
+        }
+
+
+        try {
+            java.io.FileWriter myWriter = new java.io.FileWriter(pathAndNameOfFile, false);
+            for (int i = 0; i < array.length; i++) {
+                myWriter.write(array[i] + "\n");
+            }
+
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }
 
