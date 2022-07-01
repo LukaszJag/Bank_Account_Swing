@@ -38,14 +38,27 @@ public class AccountFileHandler {
 
 
     public static boolean searchUser (String name, String lastName) {
-        File file = new File(name, lastName);
+
+        String line = "";
+        String[] arrayNameAndLastName;
+        File file = new File("src/textFiles/AllNameAndLastName.txt");
 
         try {
 
             Scanner fileReader = new Scanner(file);
 
             while(fileReader.hasNextLine()){
-                System.out.println(fileReader.nextLine());
+
+                line = fileReader.nextLine();
+                arrayNameAndLastName = line.split("-",0);
+                if (arrayNameAndLastName[0].equals(name)){
+                    if(arrayNameAndLastName[1].equals(lastName)){
+                        return true;
+                    }
+                }
+
+
+
             }
 
             System.out.println();
