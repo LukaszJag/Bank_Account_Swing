@@ -118,6 +118,44 @@ public class AccountFileHandler {
         }
     }
 
+    public static boolean isActive(String name, String lastName){
+        boolean isActive= false;
+
+        return isActive;
+    }
+
+    public static void closeAccount(String name, String lastName) {
+        String pathAndNameOfFile = "src/textFiles/" + name + "-" + lastName + ".txt";
+        File file = new File(pathAndNameOfFile);
+        String[] array = new String[20];
+        double tmp = 0;
+        try {
+            Scanner fileReader = new Scanner(file);
+            int counter = 0;
+            while (fileReader.hasNextLine()) {
+                array[counter] = fileReader.nextLine();
+                counter++;
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        array[2] = "frozen";
+
+        try {
+            java.io.FileWriter myWriter = new java.io.FileWriter(pathAndNameOfFile, false);
+            for (int i = 0; i < array.length; i++) {
+                myWriter.write(array[i] + "\n");
+            }
+
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
     public static boolean unBalance(String name, String lastName, double amount, String typeOfMoney) {
         String pathAndNameOfFile = "src/textFiles/" + name + "-" + lastName + ".txt";
         File file = new File(pathAndNameOfFile);
