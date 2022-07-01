@@ -33,7 +33,10 @@ public class AccountFileHandler {
         WriteToFile.writeToFileAppend(name + "-" + lastName, "AllNameAndLastName.txt");
     }
 
-    public static void searchUser(String name, String lastName){
+
+    public static boolean searchUser (String name, String lastName) {
+        return false;
+
     }
 
 }
