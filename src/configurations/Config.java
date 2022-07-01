@@ -17,6 +17,18 @@ public class Config {
 
 
     public static final String[] options = {"Create new account", "Withdraw money","Pay in" ,"Close account"};
+    public static final String[] money = {"Euro", "Dollars", "Zloty"};
     public static int users = 0;
     public static double totalMoney = 0;
+
+    public static final int DEPOSIT_WINDOWS_WIDTH = 800;
+    public static final int DEPOSIT_WINDOWS_HEIGHT = 200;
+    public static final int DEPOSIT_TEXT_FIELD_SIZE = 14;
+
+    public static final int  DEPOSIT_PANEL_NORTH_SIZE = 50;
+    public static final int  DEPOSIT_PANEL_WEST_SIZE = 20;
+    public static final int  DEPOSIT_PANEL_MAIN_SIZE = 100;
+    public static final int  DEPOSIT_PANEL_EAST_SIZE = 20;
+    public static final int  DEPOSIT_PANEL_SOUTH_SIZE = 50;
+
 }

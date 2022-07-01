@@ -79,6 +79,7 @@ public class MainWindow extends JFrame{
         Button openAccountButton = new Button("Open new bank acoount");
         openAccountButton.addActionListener(new OpenNewAccout());
         Button depositButton = new Button("Deposit money");
+        depositButton.addActionListener(new DepositWindowButton());
         Button withdrawButton = new Button("Withdraw money");
         Button closeAccountButton = new Button("Close bank account");
 
@@ -98,6 +99,13 @@ public class MainWindow extends JFrame{
 
             new OpenNewAccountWindow();
 
+        }
+    }
+    private class DepositWindowButton implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            new DepositMoney();
         }
     }
 }
