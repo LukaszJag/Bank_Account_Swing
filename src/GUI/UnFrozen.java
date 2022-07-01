@@ -64,7 +64,7 @@ public class UnFrozen {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(AccountFileHandler.searchUser(nameTextField.getText(), lastNameTextField.getText())){
+            if(!AccountFileHandler.searchUser(nameTextField.getText(), lastNameTextField.getText())){
                 JOptionPane.showMessageDialog(null, "Account doesn't exist");
                 unfrozenAccount.dispose();
             }else {
