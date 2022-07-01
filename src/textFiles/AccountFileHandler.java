@@ -31,13 +31,19 @@ public class AccountFileHandler {
         return -1;
     }
 
-    public void deposit(String name, String lastName, double amount, char typeOfMoney )
+    public static void deposit(String name, String lastName, double amount, String typeOfMoney )
     {
-       /*
-        find user and add deposit to his account
-       */
+
+
     }
-    public void withdraw(String name, String lastName, double amount, char typeOfMoney )
+
+    public int searchUser(String name, String lastName){
+        int line = -1;
+
+
+        return line;
+    }
+    public void withdraw(String name, String lastName, double amount, String typeOfMoney )
     {
        /*
         find user and add withdraw to his account

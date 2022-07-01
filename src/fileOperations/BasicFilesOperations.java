@@ -3,6 +3,7 @@ package fileOperations;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -29,6 +30,29 @@ public class BasicFilesOperations {
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
+    }
+
+    public ArrayList readLines() {
+        ArrayList lines = new ArrayList();
+        String line = "";
+
+        try {
+            File file = new File(fullFilePathAndName);
+            Scanner reader = new Scanner(file);
+
+            while (reader.hasNextLine()) {
+
+                line = reader.nextLine();
+                System.out.println(line);
+                lines.add(line);
+
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        }
+
+        return lines;
+
     }
 
     public static void writeToFile() {
@@ -63,7 +87,7 @@ public class BasicFilesOperations {
 
         try {
             java.io.FileWriter myWriter = new java.io.FileWriter(fullFilePathAndName, true);
-            myWriter.write( "\n" + line);
+            myWriter.write("\n" + line);
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
 

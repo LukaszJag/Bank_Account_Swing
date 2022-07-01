@@ -1,9 +1,12 @@
 package GUI;
 
 import configurations.Config;
+import textFiles.AccountFileHandler;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class DepositMoney {
 
@@ -62,6 +65,7 @@ public class DepositMoney {
         depositPanelMain.add(moneyComboBox);
 
         depositPanelSouth.add(acceptButton);
+        acceptButton.addActionListener(new AcceptButtonDepositActionListener());
 
         depositFrame.add(depositPanelNorth, BorderLayout.NORTH);
         depositFrame.add(depositPanelWest, BorderLayout.WEST);
@@ -70,6 +74,33 @@ public class DepositMoney {
         depositFrame.add(depositPanelSouth, BorderLayout.SOUTH);
 
 
+    }
+
+    private class AcceptButtonDepositActionListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+
+            String name, lastName, typeOfMoney;
+            double money = -1;
+
+            try {
+                money = Double.parseDouble(moneyTextField.getText());
+            } catch (Exception ParseToDoubleException) {
+                JOptionPane.showMessageDialog(null, "Wrong money input");
+                depositFrame.dispose();
+            }
+
+            if (money < 0) {
+                JOptionPane.showMessageDialog(null, "Can't deposit negative values");
+                depositFrame.dispose();
+            } else {
+                AccountFileHandler.deposit(nameTextField.getText(), lastNameTextField.getText(), money,
+                        "" + moneyComboBox.getItemAt(moneyComboBox.getSelectedIndex()));
+            }
+
+        }
     }
 
 }
