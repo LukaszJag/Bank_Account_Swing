@@ -38,7 +38,7 @@ public class AccountFileHandler {
 
 
     public static boolean searchUser (String name, String lastName) {
-        File file = new File(name, lastName);
+        File file = new File("src/testFiles/AccountFileHandler");
 
         try {
 
