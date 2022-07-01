@@ -81,7 +81,7 @@ public class MainWindow extends JFrame{
         Button depositButton = new Button("Deposit money");
         depositButton.addActionListener(new DepositWindowButton());
         Button withdrawButton = new Button("Withdraw money");
-        withdrawButton.addActionListener(new DepositWindowButton());
+        withdrawButton.addActionListener(new WithDrawMoneyLister());
 
 
         Button credit = new Button("Get loan");
@@ -104,6 +104,13 @@ public class MainWindow extends JFrame{
 
     }
 
+    private class WithDrawMoneyLister implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            new WithDrawMoney();
+        }
+    }
     private class OpenNewAccout implements ActionListener {
 
         @Override
