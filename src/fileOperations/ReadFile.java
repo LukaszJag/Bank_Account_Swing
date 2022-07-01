@@ -13,9 +13,11 @@ public class ReadFile {
         try {
 
             Scanner fileReader = new Scanner(file);
+
             while(fileReader.hasNextLine()){
                 System.out.println(fileReader.nextLine());
             }
+
             System.out.println();
         } catch (FileNotFoundException e) {
 
