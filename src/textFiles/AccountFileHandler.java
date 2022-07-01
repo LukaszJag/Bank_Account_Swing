@@ -29,9 +29,11 @@ public class AccountFileHandler {
         DepositToFile.depositMoney(name,lastName,amount, typeOfMoney);
 
     }
+    public static void openAccountToFile(String name, String lastName){
+        WriteToFile.writeToFileAppend(name + "-" + lastName, "AllNameAndLastName.txt");
+    }
 
     public static void searchUser(String name, String lastName){
-
     }
 
 }

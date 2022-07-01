@@ -155,6 +155,7 @@ public class OpenNewAccountWindow {
                 if (passTest == true) {
                     JOptionPane.showMessageDialog(null, "Open new account: " + " Name: " + name + " Last Name: " + lastName);
                     AccountFileHandler.openAccount(openAccountInput);
+                    AccountFileHandler.openAccountToFile(name, lastName);
                     openAccount.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Wrong input. Open account operation fail.");
