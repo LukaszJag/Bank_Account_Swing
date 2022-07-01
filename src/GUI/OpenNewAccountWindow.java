@@ -93,7 +93,7 @@ public class OpenNewAccountWindow {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == acceptButton) {
-                String[] openAccountInput = new String[5];
+                String[] openAccountInput = new String[Config.howManyParametersToAccount];
                 String name = "";
                 String lastName = "";
                 String euro = "";
@@ -108,9 +108,10 @@ public class OpenNewAccountWindow {
 
                 openAccountInput[0] = name;
                 openAccountInput[1] = lastName;
-                openAccountInput[2] = euro;
-                openAccountInput[3] = dollars;
-                openAccountInput[4] = zloty;
+                openAccountInput[2] = "active";
+                openAccountInput[3] = euro;
+                openAccountInput[4] = dollars;
+                openAccountInput[5] = zloty;
 
                 nameTextField.setText("");
                 lastNameTextField.setText("");

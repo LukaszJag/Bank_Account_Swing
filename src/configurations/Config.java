@@ -18,6 +18,10 @@ public class Config {
 
     public static final String[] options = {"Create new account", "Withdraw money","Pay in" ,"Close account"};
     public static final String[] money = {"Euro", "Dollars", "Zloty"};
+
+
+    // Name, LastName, status of account, amount of euro, amount of dollars, amount of zloty
+    public static final int howManyParametersToAccount = 6;
     public static int users = 0;
     public static double totalMoney = 0;
 

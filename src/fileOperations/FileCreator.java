@@ -7,16 +7,20 @@ public class FileCreator {
 
     public static String location = "src/textFiles/";
 
-    public static void fileCraetor(String fileName){
-        String fileFullData = location + fileName;
+
+    public static void createAndWriteToFile(String nameOfFile, String[] lines) {
+
+        String PathAndNameOfFile = location + nameOfFile;
 
         try {
-            File file = new File(fileFullData);
-            if (file.createNewFile()) {
-                System.out.println("File created: " + file.getName());
-            } else {
-                System.out.println("File already exists.");
+            java.io.FileWriter myWriter = new java.io.FileWriter(PathAndNameOfFile, true);
+            for(int i = 0; i < lines.length; i++) {
+                myWriter.write(lines[i] + "\n");
             }
+
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
