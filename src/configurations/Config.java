@@ -35,4 +35,20 @@ public class Config {
     public static final int  DEPOSIT_PANEL_EAST_SIZE = 20;
     public static final int  DEPOSIT_PANEL_SOUTH_SIZE = 50;
 
+    public static final int WITHDRAW_MONEY_WINDOW_WIDTH = 800;
+    public static final int WITHDRAW_MONEY_WINDOW_HEIGHT = 200;
+
+    public static final int  WITHDRAW_PANEL_NORTH_SIZE = 50;
+    public static final int  WITHDRAW_PANEL_WEST_SIZE = 20;
+    public static final int  WITHDRAW_PANEL_MAIN_SIZE = 100;
+    public static final int  WITHDRAW_PANEL_EAST_SIZE = 20;
+    public static final int  WITHDRAW_PANEL_SOUTH_SIZE = 50;
+
+    public static final int  CLOSE_PANEL_NORTH_SIZE = 50;
+    public static final int  CLOSE_PANEL_WEST_SIZE = 20;
+    public static final int  CLOSE_PANEL_MAIN_SIZE = 100;
+    public static final int  CLOSE_PANEL_EAST_SIZE = 20;
+    public static final int  CLOSE_PANEL_SOUTH_SIZE = 50;
+
+
 }
