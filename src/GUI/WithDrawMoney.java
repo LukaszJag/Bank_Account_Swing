@@ -88,8 +88,11 @@ public class WithDrawMoney {
                 }
                 AccountFileHandler.unBalance(nameTextField.getText(), lastNameTextField.getText(), money
                         , "" + moneyComboBox.getItemAt(moneyComboBox.getSelectedIndex()));
+                JOptionPane.showMessageDialog(null,"Money withdraw from: " + nameTextField.getText() + " " + lastNameTextField.getText());
+                withdrawWindow.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Account doesn't exist");
+                withdrawWindow.dispose();
             }
         }
     }
