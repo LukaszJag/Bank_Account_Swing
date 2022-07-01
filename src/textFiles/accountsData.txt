@@ -3,3 +3,6 @@ Muki#Duki#active#2#euro#3#dollars#1#zloty#
 Guki#Suzuki#active#0#euro#0#dollars#0#zloty#
 Andrzej#Andrzej#active#2#euro#2#dollars#2#zloty#
 Nick#Nick#active#-12#euro#-1#dollars#-2#zloty#
+Lukasz#Jag#active#1#euro#1#dollars#1#zloty#
+Rambo#Arnold#active#0#euro#0#dollars#0#zloty#
+Mark#Obama#active#12#euro#12#dollars#12#zloty#
