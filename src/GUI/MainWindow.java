@@ -82,6 +82,13 @@ public class MainWindow extends JFrame{
         depositButton.addActionListener(new DepositWindowButton());
         Button withdrawButton = new Button("Withdraw money");
         withdrawButton.addActionListener(new DepositWindowButton());
+
+
+        Button credit = new Button("Get loan");
+        Button transfer = new Button("Transfer");
+        Button currencyConversion = new Button("Conversion");
+
+
         Button closeAccountButton = new Button("Close bank account");
         closeAccountButton.addActionListener(new CloseAccount());
 
@@ -89,6 +96,9 @@ public class MainWindow extends JFrame{
         panel2.add(openAccountButton);
         panel2.add(depositButton);
         panel2.add(withdrawButton);
+        panel2.add(credit);
+        panel2.add(transfer);
+        panel2.add(currencyConversion);
         panel2.add(closeAccountButton);
 
     }
