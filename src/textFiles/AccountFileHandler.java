@@ -119,7 +119,7 @@ public class AccountFileHandler {
     }
 
     public static boolean isActive(String name, String lastName){
-        boolean isActive= false;
+        boolean isActive = false;
 
         return isActive;
     }
