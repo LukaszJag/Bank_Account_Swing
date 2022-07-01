@@ -5,8 +5,11 @@ import fileOperations.DepositToFile;
 import fileOperations.FileCreator;
 import fileOperations.WriteToFile;
 import javax.swing.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class AccountFileHandler {
 
@@ -35,6 +38,23 @@ public class AccountFileHandler {
 
 
     public static boolean searchUser (String name, String lastName) {
+        File file = new File(name, lastName);
+
+        try {
+
+            Scanner fileReader = new Scanner(file);
+
+            while(fileReader.hasNextLine()){
+                System.out.println(fileReader.nextLine());
+            }
+
+            System.out.println();
+        } catch (FileNotFoundException e) {
+
+            throw new RuntimeException(e);
+
+        }
+
         return false;
 
     }

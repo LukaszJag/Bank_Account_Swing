@@ -9,4 +9,4 @@ name  - last name - bank account status - amount of cash - type of money - amoun
 3. add new feature
     - credit
     - transfer from user to user
-    - przelewy
+    - currency conversion (only current user)
