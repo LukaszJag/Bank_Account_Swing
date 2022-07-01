@@ -38,10 +38,10 @@ public class AccountFileHandler {
 
 
     public static boolean searchUser (String name, String lastName) {
-
         String line = "";
         String[] arrayNameAndLastName;
         File file = new File("src/textFiles/AllNameAndLastName.txt");
+
 
         try {
 
