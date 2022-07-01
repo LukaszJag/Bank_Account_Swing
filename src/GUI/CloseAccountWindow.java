@@ -68,6 +68,7 @@ public class CloseAccountWindow {
         public void actionPerformed(ActionEvent e) {
             if(AccountFileHandler.searchUser(nameTextField.getText(), lastNameTextField.getText())){
                 JOptionPane.showMessageDialog(null, "Account doesn't exist");
+                closeAccount.dispose();
             }else {
                 AccountFileHandler.closeAccount(nameTextField.getText(),lastNameTextField.getText());
                 closeAccount.dispose();

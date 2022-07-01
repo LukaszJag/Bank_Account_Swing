@@ -66,6 +66,7 @@ public class UnFrozen {
         public void actionPerformed(ActionEvent e) {
             if(AccountFileHandler.searchUser(nameTextField.getText(), lastNameTextField.getText())){
                 JOptionPane.showMessageDialog(null, "Account doesn't exist");
+                unfrozenAccount.dispose();
             }else {
                 AccountFileHandler.unfrozenAccount(nameTextField.getText(),lastNameTextField.getText());
                 unfrozenAccount.dispose();

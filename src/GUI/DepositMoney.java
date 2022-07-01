@@ -102,9 +102,11 @@ public class DepositMoney {
                     depositFrame.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Can't deposit negative values");
+                    depositFrame.dispose();
                 }
             }else {
                 JOptionPane.showMessageDialog(null, "Account doesn't exist");
+                depositFrame.dispose();
             }
         }
     }
