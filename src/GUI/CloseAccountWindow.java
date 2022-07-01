@@ -66,7 +66,7 @@ public class CloseAccountWindow {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(AccountFileHandler.searchUser(nameTextField.getText(), lastNameTextField.getText())){
+            if(!AccountFileHandler.searchUser(nameTextField.getText(), lastNameTextField.getText())){
                 JOptionPane.showMessageDialog(null, "Account doesn't exist");
                 closeAccount.dispose();
             }else {
