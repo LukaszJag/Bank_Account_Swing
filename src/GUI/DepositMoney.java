@@ -82,26 +82,30 @@ public class DepositMoney {
         public void actionPerformed(ActionEvent e) {
 
 
-            String name, lastName, typeOfMoney;
             double money = 1;
 
-            try {
-                money = Double.parseDouble(moneyTextField.getText());
-            } catch (Exception ParseToDoubleException) {
-                JOptionPane.showMessageDialog(null, "Wrong money input");
-                depositFrame.dispose();
+            if (AccountFileHandler.searchUser(nameTextField.getText(), lastNameTextField.getText())) {
+
+
+                try {
+                    money = Double.parseDouble(moneyTextField.getText());
+                } catch (Exception ParseToDoubleException) {
+                    JOptionPane.showMessageDialog(null, "Wrong money input");
+                    depositFrame.dispose();
+                }
+
+                if (money > 0) {
+
+                    AccountFileHandler.setBalance(nameTextField.getText(), lastNameTextField.getText(), money,
+                            "" + moneyComboBox.getItemAt(moneyComboBox.getSelectedIndex()));
+                    JOptionPane.showMessageDialog(null, nameTextField.getText() + " " + lastNameTextField.getText() + " receive money.");
+                    depositFrame.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Can't deposit negative values");
+                }
+            }else {
+                JOptionPane.showMessageDialog(null, "Account doesn't exist");
             }
-
-            if (money > 0) {
-
-                AccountFileHandler.setBalance(nameTextField.getText(), lastNameTextField.getText(), money,
-                        ""+moneyComboBox.getItemAt(moneyComboBox.getSelectedIndex()));
-                JOptionPane.showMessageDialog(null, nameTextField.getText() + " " + lastNameTextField.getText() + " receive money.");
-                depositFrame.dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Can't deposit negative values");
-            }
-
         }
     }
 
