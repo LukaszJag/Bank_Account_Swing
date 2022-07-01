@@ -18,30 +18,5 @@ public class DepositToFile {
         String nameOfFile = name + "-" + lastName + ".txt";
         String PathAndNameOfFile = location + nameOfFile;
 
-        File file = new File(PathAndNameOfFile);
-
-
-        try {
-            Scanner fileReader = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            Path path = FileSystems.getDefault().getPath(PathAndNameOfFile);
-            try {
-                Files.delete(path);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-            JOptionPane.showMessageDialog(null,"Account doesn't exist");
-
-
-        }
-
-        FileWriter deposit;
-        try {
-            deposit = new FileWriter(PathAndNameOfFile);
-        } catch (IOException e) {
-            System.out.println("Writer Error");
-        }
-
-
     }
 }

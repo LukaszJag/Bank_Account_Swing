@@ -1,0 +1,6 @@
+Kuba
+Juba
+active
+100
+120
+0.5
