@@ -73,22 +73,24 @@ public class WithDrawMoney {
 
     }
 
-    private class WithdrawMoneyActionListener implements ActionListener{
+    private class WithdrawMoneyActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             double money = 0;
 
-            try {
-                money = Double.parseDouble(moneyTextField.getText());
-            }
-            catch(Exception DoubleParseExceptions){
-                JOptionPane.showMessageDialog(null, "Wrong input in money text field");
+            if (AccountFileHandler.searchUser(nameTextField.getText(), lastNameTextField.getText())) {
+                try {
+                    money = Double.parseDouble(moneyTextField.getText());
+                } catch (Exception DoubleParseExceptions) {
+                    JOptionPane.showMessageDialog(null, "Wrong input in money text field");
 
+                }
+                AccountFileHandler.unBalance(nameTextField.getText(), lastNameTextField.getText(), money
+                        , "" + moneyComboBox.getItemAt(moneyComboBox.getSelectedIndex()));
+            } else {
+                JOptionPane.showMessageDialog(null, "Account doesn't exist");
             }
-            AccountFileHandler.unBalance(nameTextField.getText(), lastNameTextField.getText(), money
-                    , ""+moneyComboBox.getItemAt(moneyComboBox.getSelectedIndex()));
         }
     }
-
 }

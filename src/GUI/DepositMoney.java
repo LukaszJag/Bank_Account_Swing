@@ -82,7 +82,7 @@ public class DepositMoney {
         public void actionPerformed(ActionEvent e) {
 
 
-            double money = 1;
+            double money = -1;
 
             if (AccountFileHandler.searchUser(nameTextField.getText(), lastNameTextField.getText())) {
 
