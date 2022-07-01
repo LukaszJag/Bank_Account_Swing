@@ -1,9 +1,12 @@
 package GUI;
 
 import configurations.Config;
+import textFiles.AccountFileHandler;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.zip.DeflaterInputStream;
 
 public class WithDrawMoney {
@@ -59,6 +62,7 @@ public class WithDrawMoney {
 
         withdrawPanelMain.add(moneyComboBox);
 
+        acceptButton.addActionListener(new WithdrawMoneyActionListener());
         withdrawPanelSouth.add(acceptButton);
 
         withdrawWindow.add(withdrawPanelNorth, BorderLayout.NORTH);
@@ -67,6 +71,24 @@ public class WithDrawMoney {
         withdrawWindow.add(withdrawPanelWest, BorderLayout.WEST);
         withdrawWindow.add(withdrawPanelSouth, BorderLayout.SOUTH);
 
+    }
+
+    private class WithdrawMoneyActionListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            double money = 0;
+
+            try {
+                money = Double.parseDouble(moneyTextField.getText());
+            }
+            catch(Exception DoubleParseExceptions){
+                JOptionPane.showMessageDialog(null, "Wrong input in money text field");
+
+            }
+            AccountFileHandler.unBalance(nameTextField.getText(), lastNameTextField.getText(), money
+                    , ""+moneyComboBox.getItemAt(moneyComboBox.getSelectedIndex()));
+        }
     }
 
 }
