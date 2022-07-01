@@ -93,6 +93,9 @@ public class MainWindow extends JFrame{
         Button unfrozenButton = new Button("Unfrozen account");
         unfrozenButton.addActionListener(new Unfrozen());
 
+        Button howMany = new Button("How many user we have");
+
+
         Button closeAccountButton = new Button("Close bank account");
         closeAccountButton.addActionListener(new CloseAccount());
 
@@ -105,6 +108,7 @@ public class MainWindow extends JFrame{
         panel2.add(currencyConversion);
         panel2.add(closeAccountButton);
         panel2.add(unfrozenButton);
+        panel2.add(howMany);
 
     }
     private class Unfrozen implements ActionListener{
