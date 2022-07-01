@@ -4,11 +4,21 @@ import configurations.Config;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class OpenNewAccountWindow {
 
+    JTextField nameTextField;
+    JTextField lastNameTextField;
+    JTextField euroTextField;
+    JTextField dollarsTextFiled;
+    JTextField zlotyTextField;
+
+    JButton acceptButton;
+    JFrame openAccount = new JFrame();
     public OpenNewAccountWindow(){
-        JFrame openAccount = new JFrame();
+
         JPanel openAccountMainPanel = new JPanel();
 
         JLabel nameLabel = new JLabel("Name:");
@@ -18,13 +28,13 @@ public class OpenNewAccountWindow {
         JLabel zlotyLabel = new JLabel("Zloty:");
 
 
-        JTextField nameTextField = new JTextField(Config.OPEN_ACCOUNT_TEXT_FIELD_SIZE);
-        JTextField lastNameTextField = new JTextField(Config.OPEN_ACCOUNT_TEXT_FIELD_SIZE);
-        JTextField euroTextField = new JTextField(Config.OPEN_ACCOUNT_TEXT_FIELD_SIZE);
-        JTextField dollarsTextFiled = new JTextField(Config.OPEN_ACCOUNT_TEXT_FIELD_SIZE);
-        JTextField zlotyTextField = new JTextField(Config.OPEN_ACCOUNT_TEXT_FIELD_SIZE);
+        nameTextField = new JTextField(Config.OPEN_ACCOUNT_TEXT_FIELD_SIZE);
+        lastNameTextField = new JTextField(Config.OPEN_ACCOUNT_TEXT_FIELD_SIZE);
+        euroTextField = new JTextField(Config.OPEN_ACCOUNT_TEXT_FIELD_SIZE);
+        dollarsTextFiled = new JTextField(Config.OPEN_ACCOUNT_TEXT_FIELD_SIZE);
+        zlotyTextField = new JTextField(Config.OPEN_ACCOUNT_TEXT_FIELD_SIZE);
 
-        JButton acceptButton = new JButton("Accept");
+        acceptButton = new JButton("Accept");
 
         openAccountMainPanel.setLayout(new GridLayout(5,2));
 
@@ -52,6 +62,7 @@ public class OpenNewAccountWindow {
         JPanel openAccountPanelSouth = new JPanel();
 
         openAccountPanelSouth.add(acceptButton);
+        acceptButton.addActionListener(new OpenNewAccountButtonActionListener());
 
         openAccount.add(openAccountPanelNorth, BorderLayout.NORTH);
         openAccount.add(openAccountPanelWest, BorderLayout.WEST);
@@ -73,5 +84,85 @@ public class OpenNewAccountWindow {
         openAccount.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         openAccount.setVisible(true);
 
+    }
+
+    private class OpenNewAccountButtonActionListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == acceptButton) {
+                String[] openAccountInput = new String[5];
+                String name = "";
+                String lastName = "";
+                String euro = "";
+                String dollars = "";
+                String zloty = "";
+
+                name = nameTextField.getText();
+                lastName = lastNameTextField.getText();
+                euro = euroTextField.getText();
+                dollars = dollarsTextFiled.getText();
+                zloty = zlotyTextField.getText();
+
+                openAccountInput[0] = name;
+                openAccountInput[1] = lastName;
+                openAccountInput[2] = euro;
+                openAccountInput[3] = dollars;
+                openAccountInput[4] = zloty;
+
+                nameTextField.setText("");
+                lastNameTextField.setText("");
+                euroTextField.setText("");
+                dollarsTextFiled.setText("");
+                zlotyTextField.setText("");
+
+                double euroDouble = 0;
+                double dollarsDouble = 0;
+                double zlotyDouble = 0;
+
+                boolean passTest = true;
+
+                    try {
+
+                        Double.parseDouble(euro);
+
+                    } catch (Exception ParseToDoubleException) {
+                        JOptionPane.showMessageDialog(null, "Wrong input in euro text field.");
+                       passTest = false;
+                    }
+
+                    try {
+
+                        Double.parseDouble(dollars);
+
+                    } catch (Exception ParseToDoubleException) {
+                        JOptionPane.showMessageDialog(null, "Wrong input in dollars text field.");
+                        passTest = false;
+                    }
+
+                    try {
+
+                        Double.parseDouble(zloty);
+
+                    } catch (Exception ParseToDoubleException) {
+                        JOptionPane.showMessageDialog(null, "Wrong input in zloty text field.");
+                        passTest = false;
+                    }
+
+                    if(passTest == true){
+                        JOptionPane.showMessageDialog(null, "Open new account: " + " Name: " +name + " Last Name: " +lastName);
+                        openAccount.dispose();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Wrong input. Open account operation fail.");
+                        openAccount.dispose();
+                    }
+
+
+                for (int i = 0; i < openAccountInput.length; i++) {
+                    System.out.println(i + " " + openAccountInput[i]);
+                }
+            }
+        }
     }
 }
