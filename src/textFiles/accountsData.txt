@@ -1,1 +1,1 @@
-John#Smith#active#0,0#euro#0,1#dolars#123,12#zloty
+John#Smith#active#0,0#euro#0,1#dollars#123,12#zloty

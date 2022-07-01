@@ -4,6 +4,9 @@ import configurations.Config;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 public class MainWindow extends JFrame{
 
@@ -74,6 +77,7 @@ public class MainWindow extends JFrame{
         startWindowPanel = new JPanel();
 
         Button openAccountButton = new Button("Open new bank acoount");
+        openAccountButton.addActionListener(new OpenNewAccout());
         Button depositButton = new Button("Deposit money");
         Button withdrawButton = new Button("Withdraw money");
         Button closeAccountButton = new Button("Close bank account");
@@ -85,5 +89,15 @@ public class MainWindow extends JFrame{
         panel2.add(withdrawButton);
         panel2.add(closeAccountButton);
 
+    }
+
+    private class OpenNewAccout implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            new OpenNewAccountWindow();
+
+        }
     }
 }
