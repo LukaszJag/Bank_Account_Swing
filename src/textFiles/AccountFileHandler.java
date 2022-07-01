@@ -72,4 +72,8 @@ public class AccountFileHandler {
 
     }
 
+    public static void setBalance (String Name, String lastName, double amount, String typeOfMoney){
+
+    }
+
 }

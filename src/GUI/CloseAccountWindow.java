@@ -5,20 +5,19 @@ import configurations.Config;
 import javax.swing.*;
 import java.awt.*;
 
-public class CloseAccount {
+public class CloseAccountWindow {
 
     JFrame closeAccount = new JFrame();
 
     JTextField nameTextField = new JTextField(Config.DEPOSIT_TEXT_FIELD_SIZE);
     JTextField lastNameTextField = new JTextField(Config.DEPOSIT_TEXT_FIELD_SIZE);
 
-
     JLabel nameLabel = new JLabel("Name: ");
     JLabel lastNameLabel = new JLabel("Last name: ");
 
     JButton acceptButton = new JButton("Accept");
 
-    public CloseAccount(){
+    public CloseAccountWindow(){
        closeAccount.setSize(Config.WITHDRAW_MONEY_WINDOW_WIDTH, Config.WITHDRAW_MONEY_WINDOW_HEIGHT);
        closeAccount.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        closeAccount.setResizable(false);
@@ -52,7 +51,11 @@ public class CloseAccount {
 
         closePanelSouth.add(acceptButton);
 
-
+        closeAccount.add(closePanelNorth, BorderLayout.NORTH);
+        closeAccount.add(closePanelWest, BorderLayout.WEST);
+        closeAccount.add(closePanelMain, BorderLayout.CENTER);
+        closeAccount.add(closePanelEast, BorderLayout.EAST);
+        closeAccount.add(closePanelSouth, BorderLayout.SOUTH);
     }
 
 
