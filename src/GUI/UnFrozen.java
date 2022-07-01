@@ -8,9 +8,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CloseAccountWindow {
-
-    JFrame closeAccount = new JFrame();
+public class UnFrozen {
+    JFrame unfrozenAccount = new JFrame();
 
     JTextField nameTextField = new JTextField(Config.DEPOSIT_TEXT_FIELD_SIZE);
     JTextField lastNameTextField = new JTextField(Config.DEPOSIT_TEXT_FIELD_SIZE);
@@ -20,15 +19,15 @@ public class CloseAccountWindow {
 
     JButton acceptButton = new JButton("Accept");
 
-    public CloseAccountWindow(){
-       closeAccount.setSize(Config.WITHDRAW_MONEY_WINDOW_WIDTH, Config.WITHDRAW_MONEY_WINDOW_HEIGHT);
-       closeAccount.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       closeAccount.setResizable(false);
-       closeAccount.setLocale(null);
+    public UnFrozen(){
+        unfrozenAccount.setSize(Config.WITHDRAW_MONEY_WINDOW_WIDTH, Config.WITHDRAW_MONEY_WINDOW_HEIGHT);
+        unfrozenAccount.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        unfrozenAccount.setResizable(false);
+        unfrozenAccount.setLocale(null);
 
-       buildPanels();
+        buildPanels();
 
-       closeAccount.setVisible(true);
+        unfrozenAccount.setVisible(true);
     }
 
     private void buildPanels() {
@@ -53,13 +52,12 @@ public class CloseAccountWindow {
         closePanelMain.add(lastNameTextField);
 
         closePanelSouth.add(acceptButton);
-        acceptButton.addActionListener(new CloseAccount());
 
-        closeAccount.add(closePanelNorth, BorderLayout.NORTH);
-        closeAccount.add(closePanelWest, BorderLayout.WEST);
-        closeAccount.add(closePanelMain, BorderLayout.CENTER);
-        closeAccount.add(closePanelEast, BorderLayout.EAST);
-        closeAccount.add(closePanelSouth, BorderLayout.SOUTH);
+        unfrozenAccount.add(closePanelNorth, BorderLayout.NORTH);
+        unfrozenAccount.add(closePanelWest, BorderLayout.WEST);
+        unfrozenAccount.add(closePanelMain, BorderLayout.CENTER);
+        unfrozenAccount.add(closePanelEast, BorderLayout.EAST);
+        unfrozenAccount.add(closePanelSouth, BorderLayout.SOUTH);
     }
 
     private class CloseAccount implements ActionListener {
@@ -69,10 +67,11 @@ public class CloseAccountWindow {
             if(AccountFileHandler.searchUser(nameTextField.getText(), lastNameTextField.getText())){
                 JOptionPane.showMessageDialog(null, "Account doesn't exist");
             }else {
-                AccountFileHandler.closeAccount(nameTextField.getText(),lastNameTextField.getText());
-                closeAccount.dispose();
+                AccountFileHandler.unfrozenAccount(nameTextField.getText(),lastNameTextField.getText());
+                unfrozenAccount.dispose();
             }
         }
     }
 
 }
+
