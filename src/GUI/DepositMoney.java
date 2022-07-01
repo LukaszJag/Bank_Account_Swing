@@ -83,7 +83,7 @@ public class DepositMoney {
 
 
             String name, lastName, typeOfMoney;
-            double money = -1;
+            double money = 1;
 
             try {
                 money = Double.parseDouble(moneyTextField.getText());
@@ -92,13 +92,14 @@ public class DepositMoney {
                 depositFrame.dispose();
             }
 
-            if (money < 0) {
-                JOptionPane.showMessageDialog(null, "Can't deposit negative values");
-                AccountFileHandler.setBalance(nameTextField.getText(), lastNameTextField.getText(), money,""+moneyComboBox.getItemAt(moneyComboBox.getSelectedIndex()));
+            if (money > 0) {
+
+                AccountFileHandler.setBalance(nameTextField.getText(), lastNameTextField.getText(), money,
+                        ""+moneyComboBox.getItemAt(moneyComboBox.getSelectedIndex()));
+                JOptionPane.showMessageDialog(null, nameTextField.getText() + " " + lastNameTextField.getText() + " receive money.");
                 depositFrame.dispose();
             } else {
-                AccountFileHandler.deposit(nameTextField.getText(), lastNameTextField.getText(), money,
-                        "" + moneyComboBox.getItemAt(moneyComboBox.getSelectedIndex()));
+                JOptionPane.showMessageDialog(null, "Can't deposit negative values");
             }
 
         }

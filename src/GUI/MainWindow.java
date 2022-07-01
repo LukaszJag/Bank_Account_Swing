@@ -87,7 +87,7 @@ public class MainWindow extends JFrame{
         Button credit = new Button("Get loan");
         Button transfer = new Button("Transfer");
         Button currencyConversion = new Button("Conversion");
-
+        Button unfrozenButton = new Button("Unfrozen account");
 
         Button closeAccountButton = new Button("Close bank account");
         closeAccountButton.addActionListener(new CloseAccount());
@@ -100,6 +100,7 @@ public class MainWindow extends JFrame{
         panel2.add(transfer);
         panel2.add(currencyConversion);
         panel2.add(closeAccountButton);
+        panel2.add(unfrozenButton);
 
     }
 

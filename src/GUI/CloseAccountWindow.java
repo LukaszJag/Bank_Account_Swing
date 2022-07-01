@@ -4,6 +4,8 @@ import configurations.Config;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CloseAccountWindow {
 
@@ -58,5 +60,12 @@ public class CloseAccountWindow {
         closeAccount.add(closePanelSouth, BorderLayout.SOUTH);
     }
 
+    private class CloseAccount implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+    }
 
 }
