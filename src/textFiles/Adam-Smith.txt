@@ -1,0 +1,6 @@
+Adam
+Smith
+active
+100
+1000
+23000
