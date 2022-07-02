@@ -52,6 +52,7 @@ public class UnFrozen {
         closePanelMain.add(lastNameTextField);
 
         closePanelSouth.add(acceptButton);
+        acceptButton.addActionListener(new UnfrozenAccount());
 
         unfrozenAccount.add(closePanelNorth, BorderLayout.NORTH);
         unfrozenAccount.add(closePanelWest, BorderLayout.WEST);
@@ -60,7 +61,7 @@ public class UnFrozen {
         unfrozenAccount.add(closePanelSouth, BorderLayout.SOUTH);
     }
 
-    private class CloseAccount implements ActionListener {
+    private class UnfrozenAccount implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
