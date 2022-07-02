@@ -16,9 +16,9 @@ name  - last name - bank account status - amount of cash - type of money - amoun
     - withdraw
     - deposit
     - close account
+    -unfrozen
 
 5. doesn't work
     -loan
-    -unfrozen
     -transfer
     -conversion
