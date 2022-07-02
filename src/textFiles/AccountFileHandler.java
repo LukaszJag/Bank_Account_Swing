@@ -1,6 +1,7 @@
 package textFiles;
 
 import GUI.DepositMoney;
+import configurations.Config;
 import fileOperations.DepositToFile;
 import fileOperations.FileCreator;
 import fileOperations.WriteToFile;
@@ -187,7 +188,30 @@ public class AccountFileHandler {
             e.printStackTrace();
         }
     }
+    public static String[] getMoney(String name, String lastName){
+        String[] money = new String[Config.money.length];
+        String pathAndNameOfFile = "src/textFiles/" + name + "-" + lastName + ".txt";
+        File file = new File(pathAndNameOfFile);
+        String[] array = new String[20];
+        double tmp = 0;
+        try {
+            Scanner fileReader = new Scanner(file);
+            int counter = 0;
+            while (fileReader.hasNextLine()) {
+                array[counter] = fileReader.nextLine();
+                counter++;
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
+        money[0] = array[3];
+        money[1] = array[4];
+        money[2] = array[5];
+
+        return money;
+
+    }
     public static boolean unBalance(String name, String lastName, double amount, String typeOfMoney) {
         String pathAndNameOfFile = "src/textFiles/" + name + "-" + lastName + ".txt";
         File file = new File(pathAndNameOfFile);
